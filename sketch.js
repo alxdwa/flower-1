@@ -21,7 +21,7 @@ function draw() {
 
 		beginShape();
 		for (let i = 0; i < 360; i++) {
-			r = map(noise(sin(i)+frameCount/100), 0, 1, 100, 200)
+			r = map(noise(sin(i)*frameCount/100), 0, 1, 0+off, 100+off)
 			x = r * cos(i) * sin(j);
 			y = r * sin(i);
 			vertex(x,y);
@@ -30,3 +30,15 @@ function draw() {
 	}
 	pop();
 }
+
+//	r = map(noise(sin(i)+(frameCount/100)), 0, 1, 100, 300)
+// this makes blob exterior evolve, but does not fold upon itself
+
+//r = map(noise(sin(i)*(frameCount/100)), 0, 1, 100, 300)
+//exterior folds in on itself in vertical direction
+
+//r = map(noise(sin(i)*frameCount/100), 0, 1, 0+off, 100+off)
+//exterior evolves as a flower, noise emerging from center 
+
+//r = map(noise(sin(i)*frameCount/100), 0, 1, 0, 100+off)
+//evolves with more noise around exterior
